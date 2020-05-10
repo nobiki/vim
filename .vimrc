@@ -222,6 +222,9 @@ let g:slack_memo_channel = $SLACK_MEMO_CHANNEL
 let g:php_localvarcheck_enable = 1
 let g:php_localvarcheck_global = 0
 
+" Plugin: editorconfig-vim
+let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
+
 " ---------------------------------------------
 " vim settings
 " ---------------------------------------------
