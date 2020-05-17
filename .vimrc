@@ -202,7 +202,7 @@ let g:winresizer_horiz_resize = 1
 " Plugin: open-browser.vim
 "   Markdown編集環境
 au BufRead,BufNewFile *.md set filetype=markdown
-let g:previm_open_cmd = 'google-chrome --no-sandbox ~/.vim/pack/foo/start/previm/preview/index.html &'
+"let g:previm_open_cmd = 'google-chrome --no-sandbox ~/vim/.vim/plugged/previm/preview/index.html &'
 "let g:previm_open_cmd = 'open -a "/Applications/Google Chrome.app" ~/.vim/pack/foo/start/previm/preview/index.html &'
 let g:vim_markdown_folding_disabled=1
 
