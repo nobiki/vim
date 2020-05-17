@@ -17,3 +17,22 @@ trim_trailing_whitespace = false
 ####################
 [*.php]
 insert_final_newline = true
+
+####################
+## frontend
+####################
+[*.html]
+indent_size = 2
+tab_width = 2
+
+[*.js]
+indent_size = 2
+tab_width = 2
+
+####################
+## text
+####################
+[*.json]
+indent_size = 2
+tab_width = 2
+
