@@ -225,6 +225,12 @@ let g:php_localvarcheck_global = 0
 " Plugin: editorconfig-vim
 let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 
+" Plugin: vim-lsp
+nnoremap <expr> <silent> <C-]> execute(':LspDefinition') =~ "not supported" ? "\<C-]>" : ":echo<cr>"
+
+
+
+
 " ---------------------------------------------
 " vim settings
 " ---------------------------------------------
