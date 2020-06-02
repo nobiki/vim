@@ -21,6 +21,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'majutsushi/tagbar'
 Plug 'junegunn/fzf.vim'
 Plug 'simeji/winresizer'
+Plug 'ryanoasis/vim-devicons'
 
 " lsp
 Plug 'prabirshrestha/async.vim'
