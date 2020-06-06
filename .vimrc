@@ -266,6 +266,9 @@ inoremap jj <Esc>
 " 通常モード中に素早くqqと入力した場合は保存せずに閉じる
 nnoremap qq :q<CR>
 
+" 通常モード中に素早くwqqと入力した場合は保存して閉じる
+nnoremap wqq :wq<CR>
+
 " タブ移動
 nmap <Tab>      gt
 nmap <S-Tab>    gT
