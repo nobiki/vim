@@ -263,6 +263,9 @@ set ambiwidth=double    " ○△→などを2バイトで表示する
 " 入力モード中に素早くjjと入力した場合はESCとみなす
 inoremap jj <Esc>
 
+" 通常モード中に素早くqqと入力した場合は保存せずに閉じる
+nnoremap qq :q<CR>
+
 " タブ移動
 nmap <Tab>      gt
 nmap <S-Tab>    gT
