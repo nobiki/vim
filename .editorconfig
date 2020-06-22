@@ -19,6 +19,12 @@ trim_trailing_whitespace = false
 insert_final_newline = true
 
 ####################
+## Go
+####################
+[*.go]
+indent_style = tab
+
+####################
 ## frontend
 ####################
 [*.html]
