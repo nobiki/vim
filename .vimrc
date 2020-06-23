@@ -22,6 +22,7 @@ Plug 'majutsushi/tagbar'
 Plug 'junegunn/fzf.vim'
 Plug 'simeji/winresizer'
 Plug 'ryanoasis/vim-devicons'
+Plug 'osyo-manga/vim-brightest'
 
 " lsp
 Plug 'prabirshrestha/async.vim'
