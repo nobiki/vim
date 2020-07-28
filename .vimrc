@@ -23,16 +23,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'simeji/winresizer'
 Plug 'ryanoasis/vim-devicons'
 Plug 'osyo-manga/vim-brightest'
-
-" lsp
-Plug 'prabirshrestha/async.vim'
-Plug 'prabirshrestha/asyncomplete.vim'
-Plug 'prabirshrestha/asyncomplete-lsp.vim'
-Plug 'prabirshrestha/vim-lsp'
-Plug 'mattn/vim-lsp-settings'
-Plug 'mattn/vim-lsp-icons'
-Plug 'hrsh7th/vim-vsnip'
-Plug 'hrsh7th/vim-vsnip-integ'
+Plug 'Shougo/neocomplcache'
 
 " markdown
 Plug 'plasticboy/vim-markdown'
@@ -81,6 +72,10 @@ call plug#end()
 "   WakaTime
 " Plugin: phpfolding
 "   php関数の折りたたみ
+
+" Plugin: neocomplcache
+"   dark power
+let g:neocomplcache_enable_at_startup = 1
 
 " Plugin: NERDTree
 let NERDTreeShowHidden = 1
