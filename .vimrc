@@ -44,6 +44,8 @@ Plug 'vim-scripts/VimRepress'
 Plug 'everzet/phpfolding.vim'
 Plug 'mattn/sonictemplate-vim'
 
+Plug 'hashivim/vim-terraform'
+
 Plug 'mattn/gist-vim'
 Plug 'tsuyoshiwada/slack-memo-vim'
 
@@ -225,7 +227,9 @@ let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 " Plugin: vim-lsp
 nnoremap <expr> <silent> <C-]> execute(':LspDefinition') =~ "not supported" ? "\<C-]>" : ":echo<cr>"
 
-
+" Plugin: 'hashivim/vim-terraform'
+let g:terraform_fold_sections=1
+let g:terraform_fmt_on_save=1
 
 
 " ---------------------------------------------
