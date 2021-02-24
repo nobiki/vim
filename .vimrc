@@ -49,6 +49,8 @@ Plug 'hashivim/vim-terraform'
 Plug 'mattn/gist-vim'
 Plug 'tsuyoshiwada/slack-memo-vim'
 
+Plug 'mfukar/robotframework-vim'
+
 Plug 'wakatime/vim-wakatime'
 
 call plug#end()
