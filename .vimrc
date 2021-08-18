@@ -279,7 +279,7 @@ nmap <S-Tab>    gT
 map <Leader>ww <C-w>w
 
 " マウス設定
-" set mouse=a
+" set mouse-=a
 " set ttymouse=xterm2
 
 " エイリアス設定
