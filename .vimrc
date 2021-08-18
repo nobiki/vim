@@ -282,6 +282,9 @@ map <Leader>ww <C-w>w
 " set mouse-=a
 " set ttymouse=xterm2
 
+" ビープ音を消す
+set visualbell
+
 " エイリアス設定
 let $BASH_ENV = "~/.vimaliases"
 
