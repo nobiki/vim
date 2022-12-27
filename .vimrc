@@ -40,6 +40,7 @@ Plug 'mattn/webapi-vim'
 Plug 'eshion/vim-sync'
 Plug 'vim-scripts/dbext.vim'
 Plug 'vim-scripts/VimRepress'
+Plug 'vim-scripts/AnsiEsc.vim'
 
 Plug 'everzet/phpfolding.vim'
 Plug 'mattn/sonictemplate-vim'
@@ -76,6 +77,8 @@ call plug#end()
 "   WakaTime
 " Plugin: phpfolding
 "   php関数の折りたたみ
+" Plugin: AnsiEsc.vim
+"   vimでANSI colorを表示する
 
 " Plugin: neocomplcache
 "   dark power
