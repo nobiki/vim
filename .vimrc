@@ -77,7 +77,7 @@ call plug#end()
 "   WakaTime
 " Plugin: phpfolding
 "   php関数の折りたたみ
-" Plugin: AnsiEsc.vim
+" Plugin: AnsiEsc.vim [\as]:AnsiEsc
 "   vimでANSI colorを表示する
 
 " Plugin: neocomplcache
@@ -321,6 +321,9 @@ nnoremap <Leader>/ :<C-u>set hlsearch<Return>/
 nnoremap ? :<C-u>set hlsearch<Return>?
 nnoremap * :<C-u>set hlsearch<Return>*
 nnoremap # :<C-u>set hlsearch<Return>#
+
+" ANSI colorの表示/非表示を切り替え[\as]
+nnoremap <Leader>as :AnsiEsc<Return>
 
 " ソフトタブとハードタブを相互変換
 " call Retab2Hard():ソフトタブをハードタブへ変換
