@@ -119,8 +119,8 @@ map <Leader>rg :!rg
 "   Vimのカーソル移動を爆速化 [s]
 nmap S <Plug>(easymotion-s2)
 nmap T <Plug>(easymotion-t2)
-map  / <Plug>(easymotion-sn)
-omap / <Plug>(easymotion-tn)
+" map  / <Plug>(easymotion-sn)
+" omap / <Plug>(easymotion-tn)
 
 " Plugin: vim-edgemotion
 "   Vimのカーソル移動を爆速化 [s]
