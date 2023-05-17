@@ -52,6 +52,7 @@ Plug 'tsuyoshiwada/slack-memo-vim'
 
 Plug 'mfukar/robotframework-vim'
 
+Plug 'CoderCookE/vim-chatgpt'
 Plug 'wakatime/vim-wakatime'
 
 call plug#end()
@@ -235,6 +236,11 @@ nnoremap <expr> <silent> <C-]> execute(':LspDefinition') =~ "not supported" ? "\
 " Plugin: 'hashivim/vim-terraform'
 let g:terraform_fold_sections=1
 let g:terraform_fmt_on_save=1
+
+
+" Plugin: 'CoderCookE/vim-chatgpt'
+let g:chat_gpt_max_tokens=2000
+" let g:chat_gpt_model='gpt-3'
 
 
 " ---------------------------------------------
