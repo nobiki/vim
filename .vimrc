@@ -16,7 +16,6 @@ Plug 'Townk/vim-autoclose'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-
 " ide
 Plug 'itchyny/lightline.vim'
 Plug 'scrooloose/nerdtree'
@@ -56,6 +55,7 @@ Plug 'tsuyoshiwada/slack-memo-vim'
 
 Plug 'mfukar/robotframework-vim'
 
+Plug 'github/copilot.vim'
 Plug 'CoderCookE/vim-chatgpt'
 Plug 'wakatime/vim-wakatime'
 
@@ -249,6 +249,9 @@ let g:chat_gpt_max_tokens=2000
 " Plugin: 'prabirshrestha/vim-lsp'
 setlocal signcolumn=no
 
+" Plugin: 'github/copilot'
+imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")
+let g:copilot_no_tab_map = v:true
 
 " ---------------------------------------------
 " vim settings
