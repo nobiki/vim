@@ -14,6 +14,8 @@ Plug 'bronson/vim-trailing-whitespace'
 Plug 'machakann/vim-sandwich'
 Plug 'Townk/vim-autoclose'
 Plug 'terryma/vim-multiple-cursors'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
 
 " ide
 Plug 'itchyny/lightline.vim'
@@ -338,6 +340,11 @@ nnoremap <Leader>as :AnsiEsc<Return>
 
 " 補完ウィンドウの設定
 set completeopt=menuone,noinsert
+inoremap <silent><expr> <TAB>
+  \ coc#pum#visible() ? coc#pum#next(1):
+  \ <SID>check_back_space() ? "\<Tab>" :
+  \ coc#refresh()
+inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<S-TAB>" " "\<C-h>"
 
 " 補完表示時のEnterで改行をしない
 inoremap <expr><CR>  pumvisible() ? "<C-y>" : "<CR>"
