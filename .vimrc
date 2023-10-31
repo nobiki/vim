@@ -23,7 +23,9 @@ Plug 'junegunn/fzf.vim'
 Plug 'simeji/winresizer'
 Plug 'ryanoasis/vim-devicons'
 Plug 'osyo-manga/vim-brightest'
-Plug 'Shougo/neocomplcache'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'mattn/vim-lsp-settings'
+" Plug 'Shougo/neocomplcache'
 
 " markdown
 Plug 'plasticboy/vim-markdown'
@@ -242,6 +244,9 @@ let g:terraform_fmt_on_save=1
 let g:chat_gpt_max_tokens=2000
 " let g:chat_gpt_model='gpt-3'
 
+" Plugin: 'prabirshrestha/vim-lsp'
+setlocal signcolumn=no
+
 
 " ---------------------------------------------
 " vim settings
@@ -330,6 +335,12 @@ nnoremap # :<C-u>set hlsearch<Return>#
 
 " ANSI colorの表示/非表示を切り替え[\as]
 nnoremap <Leader>as :AnsiEsc<Return>
+
+" 補完ウィンドウの設定
+set completeopt=menuone,noinsert
+
+" 補完表示時のEnterで改行をしない
+inoremap <expr><CR>  pumvisible() ? "<C-y>" : "<CR>"
 
 " ソフトタブとハードタブを相互変換
 " call Retab2Hard():ソフトタブをハードタブへ変換
