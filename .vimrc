@@ -14,7 +14,7 @@ Plug 'bronson/vim-trailing-whitespace'
 Plug 'machakann/vim-sandwich'
 Plug 'Townk/vim-autoclose'
 Plug 'terryma/vim-multiple-cursors'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " ide
 Plug 'itchyny/lightline.vim'
@@ -24,8 +24,8 @@ Plug 'junegunn/fzf.vim'
 Plug 'simeji/winresizer'
 Plug 'ryanoasis/vim-devicons'
 Plug 'osyo-manga/vim-brightest'
-Plug 'prabirshrestha/vim-lsp'
-Plug 'mattn/vim-lsp-settings'
+" Plug 'prabirshrestha/vim-lsp'
+" Plug 'mattn/vim-lsp-settings'
 " Plug 'Shougo/neocomplcache'
 
 " markdown
@@ -60,6 +60,7 @@ Plug 'CoderCookE/vim-chatgpt'
 Plug 'wakatime/vim-wakatime'
 
 call plug#end()
+
 
 " ---------------------------------------------
 " plugin settings
@@ -261,6 +262,7 @@ setlocal signcolumn=no
 imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")
 let g:copilot_no_tab_map = v:true
 
+
 " ---------------------------------------------
 " vim settings
 " ---------------------------------------------
@@ -351,14 +353,6 @@ nnoremap <Leader>as :AnsiEsc<Return>
 
 " 補完ウィンドウの設定
 set completeopt=menuone,noinsert
-inoremap <silent><expr> <TAB>
-  \ coc#pum#visible() ? coc#pum#next(1):
-  \ <SID>check_back_space() ? "\<Tab>" :
-  \ coc#refresh()
-inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<S-TAB>" " "\<C-h>"
-
-" 補完表示時のEnterで改行をしない
-inoremap <expr><CR>  pumvisible() ? "<C-y>" : "<CR>"
 
 " ソフトタブとハードタブを相互変換
 " call Retab2Hard():ソフトタブをハードタブへ変換
@@ -374,3 +368,9 @@ endfunction
 command! Retab2Hard :call Retab2Hard()
 command! Retab2Soft :call Retab2Soft()
 
+" 補完表示時のEnterで改行をしない
+inoremap <expr><CR>  pumvisible() ? "<C-y>" : "<CR>"
+
+set completeopt=menuone,noinsert
+inoremap <expr><C-n> pumvisible() ? "<Down>" : "<C-n>"
+inoremap <expr><C-p> pumvisible() ? "<Up>" : "<C-p>"
