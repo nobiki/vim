@@ -30,7 +30,6 @@ Plug 'osyo-manga/vim-brightest'
 " Plug 'Shougo/neocomplcache'
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
-Plug 'prettier/vim-prettier', { 'do': 'yarn install --frozen-lockfile --production' }
 
 " markdown
 Plug 'plasticboy/vim-markdown'
@@ -265,7 +264,7 @@ let g:copilot_no_tab_map = v:true
 " set filetypes as typescriptreact
 autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescriptreact
 
-" Plug 'prettier/vim-prettier', { 'do': 'yarn install --frozen-lockfile --production' }
+" 'prettier/vim-prettier', (Needs: npm install -g prettier')
 augroup fmt
   autocmd!
   autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.svelte,*.yaml,*.html PrettierAsync
