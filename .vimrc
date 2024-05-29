@@ -28,6 +28,7 @@ Plug 'osyo-manga/vim-brightest'
 " Plug 'prabirshrestha/vim-lsp'
 " Plug 'mattn/vim-lsp-settings'
 " Plug 'Shougo/neocomplcache'
+Plug 'prettier/vim-prettier', { 'do': 'yarn install --frozen-lockfile --production' }
 
 " markdown
 Plug 'plasticboy/vim-markdown'
