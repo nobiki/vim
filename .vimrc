@@ -28,6 +28,8 @@ Plug 'osyo-manga/vim-brightest'
 " Plug 'prabirshrestha/vim-lsp'
 " Plug 'mattn/vim-lsp-settings'
 " Plug 'Shougo/neocomplcache'
+Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install --frozen-lockfile --production' }
 
 " markdown
@@ -259,6 +261,9 @@ setlocal signcolumn=no
 imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")
 let g:copilot_no_tab_map = v:true
 
+" Plugin: 'peitalin/vim-jsx-typescript'
+" set filetypes as typescriptreact
+autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescriptreact
 
 " ---------------------------------------------
 " vim settings
