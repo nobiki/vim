@@ -1,4 +1,3 @@
-packloadall
 " ---------------------------------------------
 " plugin lists
 " ---------------------------------------------
@@ -57,6 +56,7 @@ Plug 'mattn/gist-vim'
 Plug 'tsuyoshiwada/slack-memo-vim'
 
 Plug 'mfukar/robotframework-vim'
+Plug 'adi/vim-indent-rainbow'
 
 Plug 'github/copilot.vim'
 Plug 'wakatime/vim-wakatime'
@@ -269,6 +269,9 @@ augroup fmt
   autocmd!
   autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.svelte,*.yaml,*.html PrettierAsync
 augroup END
+
+" Plug 'adi/vim-indent-rainbow'
+call togglerb#map("<Leader>rb")
 
 " ---------------------------------------------
 " vim settings
