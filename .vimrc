@@ -333,6 +333,8 @@ let g:netrw_liststyle = 3
 " ペーストモードの切り替え
 set pastetoggle=<F2>
 
+" 行番号の切り替え
+nnoremap <F3> :set invnumber<CR>
 " 現在時刻を挿入[C-o][C-o]
 nmap <C-o><C-o> <ESC>i<C-r>=strftime("%Y-%m-%d %H:%M:%S")<CR><CR>
 
