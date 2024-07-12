@@ -245,9 +245,6 @@ let g:php_localvarcheck_global = 0
 " Plugin: editorconfig-vim
 let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 
-" Plugin: vim-lsp
-nnoremap <expr> <silent> <C-]> execute(':LspDefinition') =~ "not supported" ? "\<C-]>" : ":echo<cr>"
-
 " Plugin: 'hashivim/vim-terraform'
 let g:terraform_fold_sections=1
 let g:terraform_fmt_on_save=1
@@ -259,6 +256,8 @@ setlocal signcolumn=no
 " Plugin: 'github/copilot'
 imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")
 let g:copilot_no_tab_map = v:true
+imap <silent><script><expr> <M-]> copilot#Next()
+imap <silent><script><expr> <M-[> copilot#Previous()
 
 " Plugin: 'peitalin/vim-jsx-typescript'
 " set filetypes as typescriptreact
