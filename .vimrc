@@ -287,6 +287,11 @@ colorscheme lucius
 set background=dark
 set t_Co=256
 
+" コメントの色
+" hi Comment ctermfg=black
+" hi Comment ctermbg=gray
+highlight Comment ctermbg=NONE guibg=NONE
+
 " editor
 syntax on
 set synmaxcol=200
