@@ -297,6 +297,11 @@ set wildmenu            " コマンドモードの補完
 set history=500         " 保存するコマンド履歴の数
 set ambiwidth=double    " ○△→などを2バイトで表示する
 
+" コメントの色
+hi Comment ctermfg=black
+hi Comment ctermbg=darkgray
+
+
 " カーソルを行頭、行末で止まらないようにする
 " set whichwrap=b,s,h,l,<,>,[,]
 
