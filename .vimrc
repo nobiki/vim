@@ -126,6 +126,9 @@ autocmd VimLeave *
 map <Leader>tg :!tig<CR>
 map <Leader>rg :!rg 
 
+map <Leader>tp :!tp<CR>
+map <Leader>ta :!ta<CR>
+
 " Plugin: vim-easymotion
 "   Vimのカーソル移動を爆速化 [s]
 nmap S <Plug>(easymotion-s2)
@@ -301,11 +304,6 @@ set cursorline          " カーソル行の背景色を変更
 set wildmenu            " コマンドモードの補完
 set history=500         " 保存するコマンド履歴の数
 set ambiwidth=double    " ○△→などを2バイトで表示する
-
-" コメントの色
-hi Comment ctermfg=black
-hi Comment ctermbg=darkgray
-
 
 " カーソルを行頭、行末で止まらないようにする
 " set whichwrap=b,s,h,l,<,>,[,]
