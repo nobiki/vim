@@ -342,6 +342,7 @@ set pastetoggle=<F2>
 
 " 行番号の切り替え
 nnoremap <F3> :set invnumber<CR>
+
 " 現在時刻を挿入[C-o][C-o]
 nmap <C-o><C-o> <ESC>i<C-r>=strftime("%Y-%m-%d %H:%M:%S")<CR><CR>
 
@@ -352,6 +353,9 @@ xnoremap <Leader>sq :!sql-formatter<CR>
 if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 endif
+
+" 画面のフラッシュを止める
+set visualbell t_vb=
 
 " 空白やハードタブを可視化
 " tab:タブ、trail:行末のスペース、eol:改行、extends:画面外（右）、precedes:画面外（左）
