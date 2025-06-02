@@ -167,18 +167,30 @@ inoremap <Leader>ws <ESC>:FixWhitespace<CR>i
 
 " Plugin: lightline.vim
 "   ステータスバー拡張
+" fugitive.vimから現在のGitブランチ名を取得
 function MyFugitiveHead()
   let head = FugitiveHead()
   if head != ""
     let head = "\uf126 " .. head
+  else
+    let head = "\uf126 " .. '[No Git Repo]'
   endif
   return head
+endfunction
+" AWS_PROFILEを表示
+function! LightlineAwsProfile() abort
+  let aws_profile = getenv('AWS_PROFILE')
+  if !empty(aws_profile)
+    return aws_profile
+  else
+    return '[No AWS Profile]'
+  endif
 endfunction
 let g:lightline = {
       \ 'colorscheme': 'landscape',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'readonly', 'gitbranch', 'filename', 'modified' ] ]
+      \             [ 'readonly', 'gitbranch', 'aws_profile', 'filename', 'modified' ] ]
       \ },
       \ 'component': {
       \   'readonly': '%{&filetype=="help"?"":&readonly?"⭤":""}',
@@ -189,7 +201,8 @@ let g:lightline = {
       \   'modified': '(&filetype!="help"&&(&modified||!&modifiable))',
       \ },
       \ 'component_function': {
-      \   'gitbranch': 'MyFugitiveHead'
+      \   'gitbranch': 'MyFugitiveHead',
+      \   'aws_profile': 'LightlineAwsProfile'
       \ },
       \ 'separator': { 'left': '', 'right': '' },
       \ 'subseparator': { 'left': '', 'right': '' }
@@ -353,6 +366,9 @@ xnoremap <Leader>sq :!sql-formatter<CR>
 if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 endif
+
+" カッコの強調色を調整
+hi MatchParen ctermbg=2
 
 " 画面のフラッシュを止める
 set visualbell t_vb=
