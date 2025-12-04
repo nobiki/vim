@@ -288,6 +288,13 @@ autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescriptreact
 " Plug 'adi/vim-indent-rainbow'
 call togglerb#map("<Leader>rb")
 
+" univarsal ctags file
+" 標準の tags ファイルを探し、見つからなければ .tags ファイルも探す
+set tags=tags,.tags
+" Leader + j: タグジャンプ 
+nnoremap <silent> <Leader>j <C-]>
+" Leader + k: ジャンプした場所から戻る
+nnoremap <silent> <Leader>k <C-t>
 " ---------------------------------------------
 " vim settings
 " ---------------------------------------------
