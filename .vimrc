@@ -280,10 +280,10 @@ imap <silent><script><expr> <M-[> copilot#Previous()
 autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescriptreact
 
 " 'prettier/vim-prettier', (Needs: npm install -g prettier')
-augroup fmt
-  autocmd!
-  autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.svelte,*.yaml,*.html PrettierAsync
-augroup END
+" augroup fmt
+"   autocmd!
+"   autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.svelte,*.yaml,*.html PrettierAsync
+" augroup END
 
 " Plug 'adi/vim-indent-rainbow'
 call togglerb#map("<Leader>rb")
