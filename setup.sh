@@ -15,3 +15,9 @@ vim -c "PlugInstall"
 # prettier
 mkdir -p ~/.vim/pack/plugins/start
 git clone https://github.com/prettier/vim-prettier ~/.vim/pack/plugins/start/vim-prettier
+
+# vimでもbashのaliasを使う
+grep -qF 'let $BASH_ENV = "~/.vimaliases"' ~/.vimrc || echo 'let $BASH_ENV = "~/.vimaliases"' >> ~/.vimrc
+
+echo 'shopt -s expand_aliases' > ~/.vimaliases
+cat ~/.bash_profile | grep -E ^alias >> ~/.vimaliases

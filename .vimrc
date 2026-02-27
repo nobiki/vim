@@ -15,6 +15,7 @@ Plug 'machakann/vim-sandwich'
 Plug 'Townk/vim-autoclose'
 Plug 'terryma/vim-multiple-cursors'
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'jonathanfilip/vim-lucius'
 
 " ide
 Plug 'itchyny/lightline.vim'
