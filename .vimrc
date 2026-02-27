@@ -381,6 +381,10 @@ hi MatchParen ctermbg=2
 " 画面のフラッシュを止める
 set visualbell t_vb=
 
+" <leader>cc で分割 + claude -continue を起動
+nnoremap <leader>vcl :vert botright term claude --continue<CR>
+nnoremap <leader>hcl :botright term claude --continue<CR>
+
 " 空白やハードタブを可視化
 " tab:タブ、trail:行末のスペース、eol:改行、extends:画面外（右）、precedes:画面外（左）
 set list
