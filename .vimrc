@@ -285,32 +285,24 @@ setlocal signcolumn=no
 "  - 通常の補完ウィンドウ(pum)が出ている時は、通常のCtrl-n/pとして動作
 " ----------------------------------------------------------------------------
 
-" デフォルトのTabキー割り当てを無効化 (既存の補完と衝突させない)
+" デフォルトのキー割り当てを無効化 (既存の補完と衝突させない)
 let g:codeium_no_map_tab = v:true
+let g:codeium_disable_bindings = 1
 
 " --- 挿入モード (Insert Mode) ---
 
 " 【採用】AIの提案をすべて確定
 imap <silent><script><expr> <C-j> codeium#Accept()
-
 " 【単語採用】AIの提案を「1単語」だけ確定 (微調整用)
 imap <silent><script><expr> <C-f> codeium#AcceptNextWord()
-
 " 【行採用】AIの提案を「1行」だけ確定 (少しずつ進めたい時)
-imap <silent><script><expr> <C-h> codeium#AcceptNextLine()
+imap <silent><script><expr> <C-l> codeium#AcceptNextLine()
 
-" 【次/前の候補】候補の切り替え
-" ※ポップアップメニュー(pum)表示中は通常の補完、それ以外はAI候補の切り替え
-imap <expr> <C-n> pumvisible() ? "\<C-;>" : "\<Cmd>call codeium#CycleCompletions(1)\<CR>"
-imap <expr> <C-p> pumvisible() ? "\<C-:>" : "\<Cmd>call codeium#CycleCompletions(-1)\<CR>"
+" 次のAI候補へ
+imap <C-h>   <Cmd>call codeium#CycleCompletions(1)<CR>
+" 前のAI候補へ
+imap <C-g>   <Cmd>call codeium#CycleCompletions(-1)<CR>
 
-"【クリア】今出ているAIの提案（グレー文字）を消す
-imap <C-e> <Cmd>call codeium#Clear()<CR>
-
-" --- ノーマルモード (Normal Mode) ---
-
-" 【AIチャット】ブラウザでAIと対話する
-nnoremap <Leader>ai :Codeium Chat<CR>
 " ----------------------------------------------------------------------------
 
 " Plugin: 'peitalin/vim-jsx-typescript'
