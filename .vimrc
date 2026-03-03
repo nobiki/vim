@@ -301,8 +301,8 @@ imap <silent><script><expr> <C-h> codeium#AcceptNextLine()
 
 " 【次/前の候補】候補の切り替え
 " ※ポップアップメニュー(pum)表示中は通常の補完、それ以外はAI候補の切り替え
-imap <expr> <C-n> pumvisible() ? "\<C-n>" : "\<Cmd>call codeium#CycleCompletions(1)\<CR>"
-imap <expr> <C-p> pumvisible() ? "\<C-p>" : "\<Cmd>call codeium#CycleCompletions(-1)\<CR>"
+imap <expr> <C-n> pumvisible() ? "\<C-;>" : "\<Cmd>call codeium#CycleCompletions(1)\<CR>"
+imap <expr> <C-p> pumvisible() ? "\<C-:>" : "\<Cmd>call codeium#CycleCompletions(-1)\<CR>"
 
 "【クリア】今出ているAIの提案（グレー文字）を消す
 imap <C-e> <Cmd>call codeium#Clear()<CR>
