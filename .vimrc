@@ -59,7 +59,8 @@ Plug 'tsuyoshiwada/slack-memo-vim'
 Plug 'mfukar/robotframework-vim'
 Plug 'adi/vim-indent-rainbow'
 
-Plug 'github/copilot.vim'
+" Plug 'github/copilot.vim'
+Plug 'Exafunction/windsurf.vim', {'branch': 'main'}
 Plug 'wakatime/vim-wakatime'
 
 call plug#end()
@@ -271,10 +272,46 @@ let g:terraform_fmt_on_save=1
 setlocal signcolumn=no
 
 " Plugin: 'github/copilot'
-imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")
-let g:copilot_no_tab_map = v:true
-imap <silent><script><expr> <M-]> copilot#Next()
-imap <silent><script><expr> <M-[> copilot#Previous()
+" imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")
+" let g:copilot_no_tab_map = v:true
+" imap <silent><script><expr> <M-]> copilot#Next()
+" imap <silent><script><expr> <M-[> copilot#Previous()
+
+" ----------------------------------------------------------------------------
+" Plugin: windsurf.vim (AI Autocomplete)
+" デフォルトの <Tab> 補完を無効化（既存の neocomplcache 等と競合させないため）
+"  - <C-j> でAIの提案をまるごと採用
+"  - <C-f> で単語単位、<C-a> で行単位の「部分採用」が可能
+"  - 通常の補完ウィンドウ(pum)が出ている時は、通常のCtrl-n/pとして動作
+" ----------------------------------------------------------------------------
+
+" デフォルトのTabキー割り当てを無効化 (既存の補完と衝突させない)
+let g:codeium_no_map_tab = v:true
+
+" --- 挿入モード (Insert Mode) ---
+
+" 【採用】AIの提案をすべて確定
+imap <silent><script><expr> <C-j> codeium#Accept()
+
+" 【単語採用】AIの提案を「1単語」だけ確定 (微調整用)
+imap <silent><script><expr> <C-f> codeium#AcceptNextWord()
+
+" 【行採用】AIの提案を「1行」だけ確定 (少しずつ進めたい時)
+imap <silent><script><expr> <C-h> codeium#AcceptNextLine()
+
+" 【次/前の候補】候補の切り替え
+" ※ポップアップメニュー(pum)表示中は通常の補完、それ以外はAI候補の切り替え
+imap <expr> <C-n> pumvisible() ? "\<C-n>" : "\<Cmd>call codeium#CycleCompletions(1)\<CR>"
+imap <expr> <C-p> pumvisible() ? "\<C-p>" : "\<Cmd>call codeium#CycleCompletions(-1)\<CR>"
+
+"【クリア】今出ているAIの提案（グレー文字）を消す
+imap <C-e> <Cmd>call codeium#Clear()<CR>
+
+" --- ノーマルモード (Normal Mode) ---
+
+" 【AIチャット】ブラウザでAIと対話する
+nnoremap <Leader>ai :Codeium Chat<CR>
+" ----------------------------------------------------------------------------
 
 " Plugin: 'peitalin/vim-jsx-typescript'
 " set filetypes as typescriptreact
