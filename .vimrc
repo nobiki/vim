@@ -127,6 +127,7 @@ autocmd VimLeave *
 
 map <Leader>tg :!tig<CR>
 map <Leader>rg :!rg 
+map <Leader>df :!difit .<CR>
 
 map <Leader>tp :!tp<CR>
 map <Leader>ta :!ta<CR>
