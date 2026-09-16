@@ -222,7 +222,7 @@ source $VIMRUNTIME/macros/matchit.vim
 
 " Plugin: dbext
 "   DB接続
-source ~/.vim/dbext/$DBEXT.dbext
+" source ~/.vim/dbext/$DBEXT.dbext
 
 " Plugin: vim table mode
 "   [\tm]:ON/OFF [||]:表作成開始
