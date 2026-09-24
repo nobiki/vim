@@ -15,6 +15,7 @@ Plug 'machakann/vim-sandwich'
 Plug 'Townk/vim-autoclose'
 Plug 'terryma/vim-multiple-cursors'
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'jonathanfilip/vim-lucius'
 
 " ide
 Plug 'itchyny/lightline.vim'
@@ -58,7 +59,8 @@ Plug 'tsuyoshiwada/slack-memo-vim'
 Plug 'mfukar/robotframework-vim'
 Plug 'adi/vim-indent-rainbow'
 
-Plug 'github/copilot.vim'
+" Plug 'github/copilot.vim'
+Plug 'Exafunction/windsurf.vim', {'branch': 'main'}
 Plug 'wakatime/vim-wakatime'
 
 call plug#end()
@@ -125,6 +127,10 @@ autocmd VimLeave *
 
 map <Leader>tg :!tig<CR>
 map <Leader>rg :!rg 
+map <Leader>df :!difit .<CR>
+
+map <Leader>tp :!tp<CR>
+map <Leader>ta :!ta<CR>
 
 " Plugin: vim-easymotion
 "   Vimのカーソル移動を爆速化 [s]
@@ -164,18 +170,30 @@ inoremap <Leader>ws <ESC>:FixWhitespace<CR>i
 
 " Plugin: lightline.vim
 "   ステータスバー拡張
+" fugitive.vimから現在のGitブランチ名を取得
 function MyFugitiveHead()
   let head = FugitiveHead()
   if head != ""
     let head = "\uf126 " .. head
+  else
+    let head = "\uf126 " .. '[No Git Repo]'
   endif
   return head
+endfunction
+" AWS_PROFILEを表示
+function! LightlineAwsProfile() abort
+  let aws_profile = getenv('AWS_PROFILE')
+  if !empty(aws_profile)
+    return aws_profile
+  else
+    return '[No AWS Profile]'
+  endif
 endfunction
 let g:lightline = {
       \ 'colorscheme': 'landscape',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'readonly', 'gitbranch', 'filename', 'modified' ] ]
+      \             [ 'readonly', 'gitbranch', 'aws_profile', 'filename', 'modified' ] ]
       \ },
       \ 'component': {
       \   'readonly': '%{&filetype=="help"?"":&readonly?"⭤":""}',
@@ -186,7 +204,8 @@ let g:lightline = {
       \   'modified': '(&filetype!="help"&&(&modified||!&modifiable))',
       \ },
       \ 'component_function': {
-      \   'gitbranch': 'MyFugitiveHead'
+      \   'gitbranch': 'MyFugitiveHead',
+      \   'aws_profile': 'LightlineAwsProfile'
       \ },
       \ 'separator': { 'left': '', 'right': '' },
       \ 'subseparator': { 'left': '', 'right': '' }
@@ -254,24 +273,59 @@ let g:terraform_fmt_on_save=1
 setlocal signcolumn=no
 
 " Plugin: 'github/copilot'
-imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")
-let g:copilot_no_tab_map = v:true
-imap <silent><script><expr> <M-]> copilot#Next()
-imap <silent><script><expr> <M-[> copilot#Previous()
+" imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")
+" let g:copilot_no_tab_map = v:true
+" imap <silent><script><expr> <M-]> copilot#Next()
+" imap <silent><script><expr> <M-[> copilot#Previous()
+
+" ----------------------------------------------------------------------------
+" Plugin: windsurf.vim (AI Autocomplete)
+" デフォルトの <Tab> 補完を無効化（既存の neocomplcache 等と競合させないため）
+"  - <C-j> でAIの提案をまるごと採用
+"  - <C-f> で単語単位、<C-a> で行単位の「部分採用」が可能
+"  - 通常の補完ウィンドウ(pum)が出ている時は、通常のCtrl-n/pとして動作
+" ----------------------------------------------------------------------------
+
+" デフォルトのキー割り当てを無効化 (既存の補完と衝突させない)
+let g:codeium_no_map_tab = v:true
+let g:codeium_disable_bindings = 1
+
+" --- 挿入モード (Insert Mode) ---
+
+" 【採用】AIの提案をすべて確定
+imap <silent><script><expr> <C-j> codeium#Accept()
+" 【単語採用】AIの提案を「1単語」だけ確定 (微調整用)
+imap <silent><script><expr> <C-f> codeium#AcceptNextWord()
+" 【行採用】AIの提案を「1行」だけ確定 (少しずつ進めたい時)
+imap <silent><script><expr> <C-l> codeium#AcceptNextLine()
+
+" 次のAI候補へ
+imap <C-h>   <Cmd>call codeium#CycleCompletions(1)<CR>
+" 前のAI候補へ
+imap <C-g>   <Cmd>call codeium#CycleCompletions(-1)<CR>
+
+" ----------------------------------------------------------------------------
 
 " Plugin: 'peitalin/vim-jsx-typescript'
 " set filetypes as typescriptreact
 autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescriptreact
 
 " 'prettier/vim-prettier', (Needs: npm install -g prettier')
-augroup fmt
-  autocmd!
-  autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.svelte,*.yaml,*.html PrettierAsync
-augroup END
+" augroup fmt
+"   autocmd!
+"   autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.svelte,*.yaml,*.html PrettierAsync
+" augroup END
 
 " Plug 'adi/vim-indent-rainbow'
 call togglerb#map("<Leader>rb")
 
+" univarsal ctags file
+" 標準の tags ファイルを探し、見つからなければ .tags ファイルも探す
+set tags=tags,.tags
+" Leader + j: タグジャンプ 
+nnoremap <silent> <Leader>j <C-]>
+" Leader + k: ジャンプした場所から戻る
+nnoremap <silent> <Leader>k <C-t>
 " ---------------------------------------------
 " vim settings
 " ---------------------------------------------
@@ -286,6 +340,11 @@ scriptencoding utf-8
 colorscheme lucius
 set background=dark
 set t_Co=256
+
+" コメントの色
+" hi Comment ctermfg=black
+" hi Comment ctermbg=gray
+highlight Comment ctermbg=NONE guibg=NONE
 
 " editor
 syntax on
@@ -334,6 +393,7 @@ set pastetoggle=<F2>
 
 " 行番号の切り替え
 nnoremap <F3> :set invnumber<CR>
+
 " 現在時刻を挿入[C-o][C-o]
 nmap <C-o><C-o> <ESC>i<C-r>=strftime("%Y-%m-%d %H:%M:%S")<CR><CR>
 
@@ -344,6 +404,16 @@ xnoremap <Leader>sq :!sql-formatter<CR>
 if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 endif
+
+" カッコの強調色を調整
+hi MatchParen ctermbg=2
+
+" 画面のフラッシュを止める
+set visualbell t_vb=
+
+" <leader>cc で分割 + claude -continue を起動
+nnoremap <leader>vcl :vert botright term claude --continue<CR>
+nnoremap <leader>hcl :botright term claude --continue<CR>
 
 " 空白やハードタブを可視化
 " tab:タブ、trail:行末のスペース、eol:改行、extends:画面外（右）、precedes:画面外（左）
