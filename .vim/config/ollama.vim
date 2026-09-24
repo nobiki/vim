@@ -1,22 +1,22 @@
 " Use Python virtual environment (and install packages via pip)
 let g:ollama_use_venv = 1
 " Ollama base URL
-let g:ollama_host = 'http://localhost:11434'
+let g:ollama_host = 'http://127.0.0.1:11434'
 
 " コード補完
-let g:ollama_model = 'starcoder2:3b'
+let g:ollama_model = 'starcoder2:7b'
 
 " チャット・レビュー
-let g:ollama_chat_model = 'gemma4:e4b'
-let g:ollama_edit_model = 'gemma4:e4b'
+let g:ollama_chat_model = 'llama3.2:3b'
+let g:ollama_edit_model = 'llama3.2:3b'
 
 " 補完に際にモデルに渡すカーソル前後のコードの行数
-let g:ollama_context_lines = 5
+let g:ollama_context_lines = 20
 " 候補の数
 let g:ollama_completion_candidates = 1
 
 " 入力が止まってから、補完を開始するまでの待ち時間(ミリ秒)
-let g:ollama_debounce_time = 500
+let g:ollama_debounce_time = 300
 
 " このファイルタイプだけ入力補完を行う
 let g:ollama_completion_allowlist_filetype = ['sh', 'markdown', 'terraform', 'python']
