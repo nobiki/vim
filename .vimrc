@@ -17,6 +17,11 @@ Plug 'terryma/vim-multiple-cursors'
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'jonathanfilip/vim-lucius'
 
+" LLM
+Plug 'gergap/vim-ollama'
+" Plug 'github/copilot.vim'
+" Plug 'Exafunction/windsurf.vim', {'branch': 'main'}
+
 " ide
 Plug 'itchyny/lightline.vim'
 Plug 'scrooloose/nerdtree'
@@ -41,26 +46,18 @@ Plug 'dhruvasagar/vim-table-mode'
 Plug 'tpope/vim-fugitive'
 
 " other
+Plug 'hashivim/vim-terraform'
 Plug 'mattn/webapi-vim'
-
 Plug 'eshion/vim-sync'
 Plug 'vim-scripts/dbext.vim'
 Plug 'vim-scripts/VimRepress'
 Plug 'vim-scripts/AnsiEsc.vim'
-
 Plug 'everzet/phpfolding.vim'
 Plug 'mattn/sonictemplate-vim'
-
-Plug 'hashivim/vim-terraform'
-
 Plug 'mattn/gist-vim'
 Plug 'tsuyoshiwada/slack-memo-vim'
-
 Plug 'mfukar/robotframework-vim'
 Plug 'adi/vim-indent-rainbow'
-
-" Plug 'github/copilot.vim'
-Plug 'Exafunction/windsurf.vim', {'branch': 'main'}
 Plug 'wakatime/vim-wakatime'
 
 call plug#end()
