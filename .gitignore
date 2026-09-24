@@ -1,5 +1,6 @@
 .vim/plugged/
 .vim/autoload/plug.vim
 .vim/pack/plugins/start/vim-prettier
+.vim/venv/*
 
 environments
