@@ -18,9 +18,9 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'jonathanfilip/vim-lucius'
 
 " LLM
-" Plug 'gergap/vim-ollama'
+Plug 'gergap/vim-ollama'
 " Plug 'github/copilot.vim'
-Plug 'Exafunction/windsurf.vim', {'branch': 'main'}
+" Plug 'Exafunction/windsurf.vim', {'branch': 'main'}
 
 " ide
 Plug 'itchyny/lightline.vim'
