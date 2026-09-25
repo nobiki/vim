@@ -18,9 +18,9 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'jonathanfilip/vim-lucius'
 
 " LLM
-Plug 'gergap/vim-ollama'
+" Plug 'gergap/vim-ollama'
 " Plug 'github/copilot.vim'
-" Plug 'Exafunction/windsurf.vim', {'branch': 'main'}
+Plug 'Exafunction/windsurf.vim', {'branch': 'main'}
 
 " ide
 Plug 'itchyny/lightline.vim'
@@ -299,7 +299,7 @@ imap <silent><script><expr> <C-l> codeium#AcceptNextLine()
 " 次のAI候補へ
 imap <C-h>   <Cmd>call codeium#CycleCompletions(1)<CR>
 " 前のAI候補へ
-imap <C-g>   <Cmd>call codeium#CycleCompletions(-1)<CR>
+imap <C-k>   <Cmd>call codeium#CycleCompletions(-1)<CR>
 
 " ----------------------------------------------------------------------------
 
